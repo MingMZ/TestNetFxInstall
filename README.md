@@ -9,9 +9,9 @@ inspired by this
 
 How to use TestNetFxInstall
 ---------------------------
-Copy TestNetFxInstall directory to
+Clone TestNetFxInstall repository to
 
-    %UserProfile%\Documents\WindowsPowerShell\Modules
+    git clone https://github.com/MingMZ/TestNetFxInstall.git %UserProfile%\Documents\WindowsPowerShell\Modules\TestNetFxInstall
 
 Then from the powershell prompt, type
 
@@ -51,5 +51,5 @@ To list all .net frameworks installed
 
 Acknowledgement
 ---------------
-Thanks [Aaron Stebner](http://blogs.msdn.com/b/astebner/)http://blogs.msdn.com/b/astebner)
+Thanks [Aaron Stebner](http://blogs.msdn.com/b/astebner/)
 for providing .net framework installation registry information.
