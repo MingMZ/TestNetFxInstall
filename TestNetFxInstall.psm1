@@ -35,7 +35,9 @@ $releases = @{
     "451" = "378675";
     "452" = "379893";
     "46"  = "393295";
-    "461" = "394254"
+    "461" = "394254";
+    "462" = "394802";
+    "47"  = "460798"
 }
 
 <#
@@ -502,6 +504,70 @@ function Test-NetFx461Install()
 
 <#
 .Synopsis
+   Test registry key and value for .net framework 4.6.2 installation
+.DESCRIPTION
+   Test registry key and value for .net framework 4.6.2 installation
+.EXAMPLE
+   Test-NetFx461Install
+#>
+function Test-NetFx462Install()
+{
+    [CmdletBinding(SupportsShouldProcess=$true)]
+    [OutputType([bool])]
+    Param()
+
+    Begin
+    {
+        $value = $null
+    }
+    Process
+    {
+        if (Test-NetFx40FullInstall)
+        {
+            $value = Get-RegistryValue -Key $regKeyNetFx45 -ValueName $regValNetFx45
+            return $value -ge $releases["462"]
+        }
+        return $false
+    }
+    End
+    {
+    }
+}
+
+<#
+.Synopsis
+   Test registry key and value for .net framework 4.7 installation
+.DESCRIPTION
+   Test registry key and value for .net framework 4.7 installation
+.EXAMPLE
+   Test-NetFx461Install
+#>
+function Test-NetFx47Install()
+{
+    [CmdletBinding(SupportsShouldProcess=$true)]
+    [OutputType([bool])]
+    Param()
+
+    Begin
+    {
+        $value = $null
+    }
+    Process
+    {
+        if (Test-NetFx40FullInstall)
+        {
+            $value = Get-RegistryValue -Key $regKeyNetFx45 -ValueName $regValNetFx45
+            return $value -ge $releases["47"]
+        }
+        return $false
+    }
+    End
+    {
+    }
+}
+
+<#
+.Synopsis
    Test if .net framework 1.0 service pack is installed
 .DESCRIPTION
    Long description
@@ -616,6 +682,14 @@ function Get-NetFxInstalled
         if (Test-NetFx461Install)
         {
             $installed += "net461"
+        }
+        if (Test-NetFx462Install)
+        {
+            $installed += "net462"
+        }
+        if (Test-NetFx47Install)
+        {
+            $installed += "net47"
         }
 
     }

@@ -3,7 +3,7 @@ TestNetFxInstall Readme
 
 TestNetFxInstall is a powershell module to detect .net framework
 installation by checking windows registry values, and it support
-detecting .net framework version from 1.0 to 4.6.1. It is
+detecting .net framework version from 1.0 to 4.7. It is
 inspired by this
 [MSDN Blog Post](http://blogs.msdn.com/b/astebner/archive/2009/06/16/9763379.aspx).
 
@@ -35,6 +35,8 @@ session:
 - Test-NetFx452Install
 - Test-NetFx46Install
 - Test-NetFx461Install
+- Test-NetFx462Install
+- Test-NetFx47Install
 - Get-NetFxInstalled
 
 Examples
